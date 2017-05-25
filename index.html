@@ -1,0 +1,118 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Paymentwall - Checkout</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/style.css" />
+        <!--<link rel="stylesheet" href="css/main.css"> -->
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <!-- START ==> PAYMENT LOADER -->
+        <div class="container payment-loader">
+	   		<div class="box">
+				<div class="clock"></div>
+			</div>
+		</div>
+		<!-- END ==> PAYMENT LOADER -->
+
+		<!-- START ==> PAYMENT METHODS -->
+		<div class="modal payment-methods">
+	      <div class="side">
+		  </div>
+		  <div class="header">
+		    <h1>Select Payment Method</h1>
+		  </div>
+		  <div class="form countries">
+		    <form>
+		      <fieldset class="exp dropdown">
+		        <label for="exp">Select your country</label>
+		        <select id="exp">
+		        </select>
+		      </fieldset>
+		    </form>
+		    <div class="payment-methods-list">
+		    	<ul></ul>
+		    </div>
+		  </div>
+		</div>
+		<!-- END ==> PAYMENT METHODS -->
+
+		<!-- START ==> PAYMENT DETAILS -->
+		<div class="modal payment-details">
+		  <div class="side">
+		    <div class="skew">
+		      <img src="images/paymentwall_logo.png"/>
+		      <div class="btn"></div>
+		    </div>
+		  </div>
+		  <div class="header">
+		    <h1>Enter Payment Details</h1>
+		  </div>
+		  <div class="form">
+		    <form>
+		      <fieldset class="number">
+		        <label class="title" for="number">Card Number</label>
+		        <label class="error" for="number">Please provide valid card number</label>
+		        <input id="first" type="num" maxlength="4"/>
+		        <input id="second" type="num" maxlength="4"/>
+		        <input id="third" type="num" maxlength="4"/>
+		        <input id="fourth" type="num" maxlength="4"/>
+		      </fieldset>
+		      <fieldset class="exp">
+		        <label class="title" for="exp">Expiration</label>
+		        <label class="error" for="exp">Please provide valid month &amp; year</label>
+		        <select id="month"></select>
+		        <select id="year"></select>
+		      </fieldset>
+		      <fieldset class="cvv">
+		        <label class="title" for="cvv">CVV</label>
+		        <label class="error" for="cvv">Please provide valid CVV number</label>
+		        <input id="cvv" type="num" maxlength="3"/>
+		      </fieldset>
+		      <button type="button">Pay</button>
+		    </form>
+		  </div>
+		</div>
+		<!-- END ==> PAYMENT DETAILS -->
+		
+		<!-- START ==> PAYMENT POP-UPs -->
+		<div class="modal small error">
+			<div class="mask"></div>
+			<div class="side"></div>
+			<div class="header">
+			    <h1>Error</h1>
+		  	</div>
+		  	<div class="form">
+		  		<p>An error occurred. Please try again!</p>
+		  		<button type="button">OK</button>
+		  	</div>
+		</div>
+
+		<div class="modal small success">
+			<div class="mask"></div>
+			<div class="side"></div>
+			<div class="header">
+			    <h1>Success</h1>
+		  	</div>
+		  	<div class="form">
+		  		<p>You checked out successfully!</p>
+		  		<button type="button" onclick="location.reload()">OK</button>
+		  	</div>
+		</div>
+		<!-- END ==> PAYMENT POP-UPs -->
+
+		<script src="lib/jquery-3.2.1.min.js"></script>
+
+		<!-- APP's SCRIPTS -->
+		<script src="scripts/script.js"></script>
+    </body>
+</html>

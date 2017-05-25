@@ -1,0 +1,417 @@
+*, :before, :after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  background: url("../images/background.png");
+}
+
+body {
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.6) 100%);
+  height: 100vh;
+  overflow: hidden;
+  color: #FFF;
+  font-family: Roboto;
+}
+
+/*  STYLE FOR COMMON MODAL */
+/* =============================================== */
+.modal {
+  height: 400px;
+  width: 650px;
+  margin: auto;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.side {
+  background: linear-gradient(-45deg, #001F60, #009DE0);
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.side .skew {
+  background: #F6F6F6;
+  height: 110%;
+  width: 45%;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: -5%;
+  z-index: 5;
+  transform: skew(8deg);
+}
+.side .skew * {
+  transform: skew(-8deg);
+}
+.side .skew h3 {
+  color: #474747;
+  font: 25px Roboto;
+  text-align: center;
+}
+.side .skew img {
+  width: 100%;
+  margin: 25px 0;
+}
+.side .skew .btn {
+  background: #474747;
+  width: 180px;
+  margin: 10px auto;
+  padding: 10px 18px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+  cursor: default;
+}
+
+.header {
+  width: 60%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.header h1 {
+  background: linear-gradient(-45deg, #2ed6bc, #01BCE6);
+  padding: 10px 25px;
+  font: 25px Roboto;
+}
+
+.form {
+  width: 350px;
+  height: 100%;
+  position: absolute;
+  top: 56px;
+  right: 0;
+}
+
+input, select, fieldset, button {
+  border: none;
+  outline: none;
+  font: 16px Roboto;
+}
+
+fieldset {
+  display: block;
+  position: relative;
+}
+
+label,
+fieldset .error {
+  display: block;
+  color: #01BCE6;
+  font: 500 13px Roboto;
+}
+
+fieldset .error {
+  color: #ef6c6c;
+  display: none;
+}
+
+fieldset .card-type {
+  color: #00ff00;
+}
+
+fieldset.has-error .error {
+  display: block;
+}
+
+fieldset.has-error .title {
+  display: none;
+}
+
+input, select {
+  background: rgba(255, 255, 255, 0.18);
+  padding: 8px 12px;
+  margin: 5px 5px 5px 0;
+  border-radius: 3px;
+  color: #FFF;
+}
+input:nth-last-of-type(1), select:nth-last-of-type(1) {
+  margin-right: 0;
+}
+
+option {
+  background: #474747;
+}
+
+.number input {
+  width: calc(25% - 7px);
+}
+
+.name input {
+  width: 100%;
+}
+
+.exp select {
+  width: calc(50% - 5px);
+}
+
+.ccv input {
+  width: 50%;
+}
+
+button {
+  display: block;
+  background: linear-gradient(-45deg, #2ed6bc, #01BCE6);
+  width: 200px;
+  color: white;
+  padding: 10px 18px;
+  margin: 40px auto;
+  font-size: 18px;
+  border-radius: 22px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* FOR PAYMENT METHODS WIDGET */
+/* =============================================== */
+.modal.payment-methods.hidden {
+  transform: translateX(-9999px);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.payment-methods .header,
+.small .header {
+  width: 100%;
+}
+
+.payment-methods-list {
+  height: 260px;
+  overflow: hidden;
+  overflow-y: visible;
+}
+
+.payment-methods .form {
+  width: 100%;
+}
+.form.countries .exp {
+  width: 100%;
+}
+
+.form.countries .exp select {
+  width: calc(50%);
+}
+.payment-methods-list ul {
+  padding: 0;
+  list-style: none;
+  font: 500 14px Roboto;
+  text-align: left;
+  margin-left: 7px;
+}
+
+.payment-methods-list ul li {
+  display: inline-block;
+  margin: 3px 6px;
+  width: 23%;
+}
+
+.payment-methods-list ul li a {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid transparent;
+  border-radius: 3px;
+  display: inline-block;
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+}
+
+.payment-methods-list ul li a:hover {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.payment-methods-list ul li img {
+  width: 100%;
+}
+
+/* FOR PAYMENT DETAILS WIDGET */
+/* =============================================== */
+.modal.payment-details {
+  transform: translateX(9999px);
+}
+
+.modal.payment-details.shown {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* FOR POP-UP MODALS */
+/* =============================================== */
+.modal.small {
+  z-index: 9;
+  top: 50px;
+  bottom: auto;
+  width: 400px;
+  height: 160px;
+  font-size:13px;
+  font-weight: 500;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal.small .mask {
+  position: absolute;
+  top: -50px;
+  left: -2500px;
+  width: 10000px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal.small.shown {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal.small .form {
+  left: 15px;
+  top: 70px;
+}
+
+.modal.small .form button {
+  margin: 20px auto;
+}
+
+/* FOR PAYMENT LOADER */
+/* =============================================== */
+.container{
+  text-align: center;
+  background-color: #1f1f1f;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.container.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.box{
+  display: inline-block;
+  height: 100vh;
+  width: 100%;
+  float:left;
+  position: relative;
+  transition: all .2s ease;
+}
+
+.box p{
+  color: #777;
+  font-family:  Lato,"Helvetica Neue" ;
+  font-weight: 300;
+  position: absolute;
+  font-size: 20px;
+  width: 100%;
+  height: 25px;
+  text-align: center;
+  bottom: 0px;
+  margin: 0;
+  top:160px;
+  background-color: #fff;
+  opacity: 0;
+  text-transform: uppercase;
+  transition: all .2s ease;
+}
+
+.box:hover p{
+  bottom:0px;
+  top:175px;
+  opacity: 1;
+  transition: all .2s ease;
+  z-index: 2;
+}
+
+/* FOR CLOCK LOADER ANIMATION */
+/* =============================================== */
+
+.clock{
+  border-radius: 60px;
+  border: 3px solid #fff;
+  height: 80px;
+  width: 80px;
+  position: relative;
+  top: 28%;
+  top: -webkit-calc(50% - 43px);
+  top: calc(50% - 43px);
+  left: 35%;
+  left: -webkit-calc(50% - 43px);
+  left: calc(50% - 43px);
+}
+.clock:after{
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  top:2px;
+  left: 48%;
+  height: 38px;
+  width: 4px;
+  border-radius: 5px;
+  -webkit-transform-origin: 50% 97%;
+      transform-origin: 50% 97%;
+  -webkit-animation: grdAiguille 2s linear infinite;
+      animation: grdAiguille 2s linear infinite;
+}
+
+@-webkit-keyframes grdAiguille{
+    0%{-webkit-transform:rotate(0deg);}
+    100%{-webkit-transform:rotate(360deg);}
+}
+
+@keyframes grdAiguille{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+
+.clock:before{
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  top:6px;
+  left: 48%;
+  height: 35px;
+  width: 4px;
+  border-radius: 5px;
+  -webkit-transform-origin: 50% 94%;
+      transform-origin: 50% 94%;
+  -webkit-animation: ptAiguille 12s linear infinite;
+      animation: ptAiguille 12s linear infinite;
+}
+
+@-webkit-keyframes ptAiguille{
+    0%{-webkit-transform:rotate(0deg);}
+    100%{-webkit-transform:rotate(360deg);}
+}
+
+@keyframes ptAiguille{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
