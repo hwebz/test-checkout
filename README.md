@@ -1,4 +1,4 @@
-# PaymentWall - Checkout App
-## Exercise for interviewing at PaymentWall
+# Test - Checkout App
+## Exercise for interviewing
 
->**Live Demo** [https://paymentwall-checkout.herokuapp.com](https://paymentwall-checkout.herokuapp.com)
+>**Live Demo** [https://test-checkout.herokuapp.com](https://test-checkout.herokuapp.com)
