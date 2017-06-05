@@ -20,7 +20,9 @@
         <!-- START ==> PAYMENT LOADER -->
         <div class="container payment-loader">
 	   		<div class="box">
-				<div class="clock"></div>
+				<div class="center">
+					<div class="clock"></div>
+				</div>
 			</div>
 		</div>
 		<!-- END ==> PAYMENT LOADER -->
@@ -88,26 +90,30 @@
 		<!-- START ==> PAYMENT POP-UPs -->
 		<div class="modal small error">
 			<div class="mask"></div>
-			<div class="side"></div>
-			<div class="header">
-			    <h1>Error</h1>
-		  	</div>
-		  	<div class="form">
-		  		<p>An error occurred. Please try again!</p>
-		  		<button type="button">OK</button>
-		  	</div>
+			<div class="modal-body">
+				<div class="side"></div>
+				<div class="header">
+				    <h1>Error</h1>
+			  	</div>
+			  	<div class="form">
+			  		<p>An error occurred. Please try again!</p>
+			  		<button type="button">OK</button>
+			  	</div>
+			</div>
 		</div>
 
 		<div class="modal small success">
 			<div class="mask"></div>
-			<div class="side"></div>
-			<div class="header">
-			    <h1>Success</h1>
-		  	</div>
-		  	<div class="form">
-		  		<p>You checked out successfully!</p>
-		  		<button type="button" onclick="location.reload()">OK</button>
-		  	</div>
+			<div class="modal-body">
+				<div class="side"></div>
+				<div class="header">
+				    <h1>Success</h1>
+			  	</div>
+			  	<div class="form">
+			  		<p>You checked out successfully!</p>
+			  		<button type="button" onclick="location.reload()">OK</button>
+			  	</div>
+			</div>
 		</div>
 		<!-- END ==> PAYMENT POP-UPs -->
 
