@@ -6,6 +6,7 @@
         <title>Paymentwall - Checkout</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
         
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' type='text/css'>
@@ -57,15 +58,15 @@
 		  <div class="header">
 		    <h1>Enter Payment Details</h1>
 		  </div>
-		  <div class="form">
+		  <div id="form" class="form">
 		    <form>
 		      <fieldset class="number">
 		        <label class="title" for="number">Card Number</label>
 		        <label class="error" for="number">Please provide valid card number</label>
-		        <input id="first" type="num" maxlength="4"/>
-		        <input id="second" type="num" maxlength="4"/>
-		        <input id="third" type="num" maxlength="4"/>
-		        <input id="fourth" type="num" maxlength="4"/>
+		        <input id="first" type="text" maxlength="4" data-dest="second" pattern="[0-9]*" />
+		        <input id="second" type="text" maxlength="4" data-dest="third" pattern="[0-9]*" />
+		        <input id="third" type="text" maxlength="4" data-dest="fourth" pattern="[0-9]*" />
+		        <input id="fourth" type="text" maxlength="4" data-dest="month" pattern="[0-9]*" />
 		      </fieldset>
 		      <fieldset class="exp">
 		        <label class="title" for="exp">Expiration</label>
@@ -76,7 +77,7 @@
 		      <fieldset class="cvv">
 		        <label class="title" for="cvv">CVV</label>
 		        <label class="error" for="cvv">Please provide valid CVV number</label>
-		        <input id="cvv" type="num" maxlength="3"/>
+		        <input id="cvv" type="text" maxlength="3" pattern="[0-9]*"/>
 		      </fieldset>
 		      <button type="button">Pay</button>
 		    </form>

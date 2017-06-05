@@ -30,6 +30,35 @@
 		"Visa Master": /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$/
 	};
 
+	var InputBehavior = function(parentFormId) {
+		var autoTab = function(current, maxlength, destination) {
+			current.unbind('keyup').bind('keyup', throttle(function(event) {
+				if (event.keyCode != 9 && event.target.value.length == maxlength) { // tab key is not need to check
+					destination.focus().select();
+				}
+			}, 200));
+		}
+
+		var init = function() {
+			var inputs = $(parentFormId + " input");
+
+			/* init for inputs which have data-dest && maxlength attrs */
+			for(var i = 0; i < inputs.length; i++) {
+				var input = $(inputs[i]);
+				var maxlength = input.attr('maxlength');
+				var dest = input.data('dest');
+
+				if ((maxlength != undefined && maxlength != null)
+					&& (dest != undefined && dest != null)) {
+					autoTab(input, maxlength, $('#' + dest));
+				}
+			}
+		}
+		return {
+			init: init	
+		}
+	}
+
 	var Validation = function(){
 		var isNumber = function(number) {
 			var regex = /^[0-9]+$/;
@@ -330,7 +359,7 @@
 				return false;
 			});
 
-			paymentDetailEle.find(".form .number input").on('keypress', throttle(function(evt) {
+			paymentDetailEle.find(".form .number input").unbind('keypress').bind('keypress', throttle(function(evt) {
 				/* Get the values from forms to validate credit card number */
 				var paymentInform = {
 					creditCardNumber: escape($.trim(paymentDetailEle.find(".form #first").val()))
@@ -382,5 +411,9 @@
 			paymentMethodsLoader(paymentMethods, selectedCountry);
 		});
 	});
+
+	/* add behavior for inputs in checkout page */
+	var behaviors = new InputBehavior('#form');
+	behaviors.init();
 
 })();
