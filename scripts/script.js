@@ -36,7 +36,7 @@
 				if (event.keyCode != 9 && event.target.value.length == maxlength) { // tab key is not need to check
 					destination.focus().select();
 				}
-			}, 200));
+			}, 300));
 		}
 
 		var init = function() {
