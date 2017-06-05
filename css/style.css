@@ -453,4 +453,8 @@ button {
   .payment-details .header {
     width: 100%;
   }
+
+  .payment-methods-list ul {
+    font-size: 12px;
+  }
 }
